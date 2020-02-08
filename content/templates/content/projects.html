@@ -1,0 +1,82 @@
+{% extends 'content/base.html' %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Bruno Mendes</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'img/default.jpg' %}" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">Web Devolpment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#experience">IoT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#others">Others</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+   <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h1 class="mb-0">Django
+        </h1>
+        <div class="subheading mb-5">
+          <a href="https://www.djangoproject.com/">django API</a>
+        </div>
+        <div>
+            <p>Most of my django projects are private therefore they wont be visable on github to avoid security fails</p>
+            <ul class="">You can check the websites online:
+                <li class="pt-3">
+                    <a href="https://weblab.pt" target="_blank">weblab</p>
+                </li>
+                <li>
+                    <a href="https://neei-dev.herokuapp.com/"target="_blank">NEEI Development Website</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </section>
+
+      <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex  align-items-center justify-content-center" id="experience">
+      <div class="w-100">
+        <h1 class="mb-0">Internet of Things</h1>
+        <div class="subheading mb-5">
+          <a href="https://en.wikipedia.org/wiki/Internet_of_things" target="_blank">read more</a>
+        </div>
+        <div>
+        <p>Currently working on developing a RESTful webserver using <a href="https://www.amazon.com.br/Building-Web-Things-Dominique-Guinard/dp/1617292680" target="_blank">Building the Web of Things</a> as a support
+        </br>
+        The code can be found <a href="https://github.com/BrunoEMendes/RasPi" target="_blank">here</a> its heavely inspired in the book with some updates due to the models of the things that I am using and deprecated code.
+        At the moment I'm working on the integration with <a href="https://evrythng.com/">EVRYTHNG</a>
+        </p>
+        </div>
+      </div>
+    </section>
+
+     <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center justify-content-center" id="others">
+      <div class="w-100">
+        <h1 class="mb-0">Others</h1>
+        <div>
+        <p>There are other projects developed either through modules or alone for entertainment, like <a href="https://github.com/BrunoEMendes/DAW_2019_2020" target="_blank">laravel</a>
+        and <a href="https://github.com/BrunoEMendes/IA2019_2020 " target="_blank">Artificial Inteligence</a>, I will be updating this with more sections once i have more time
+        </p>
+        </div>
+      </div>
+    </section>
+    </div>
+{% endblock content%}

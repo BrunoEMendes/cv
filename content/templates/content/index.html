@@ -1,0 +1,359 @@
+
+{% extends 'content/base.html' %}
+{% load static %}
+{% block content%}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Bruno Mendes</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'img/default.jpg' %}" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#interests">Languages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#awards">Others</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h1 class="mb-0">Bruno
+          <span class="text-primary">Mendes</span>
+        </h1>
+        <div class="subheading mb-5">Faro, Portugal -
+          <a href="mailto:name@email.com">bruno_mendes_pt@hotmail.com</a>
+        </div>
+        <div>
+         <a href="{% static 'pdf/cv.pdf' %}" target="_blank">Europass CV Format</a>
+        </div>
+        <p class="lead mb-5">3th grade Student at <a href="https://www.ualg.pt/pt">University of Algarve. </a> </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/bruno-mendes-a97397166/">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/BrunoEMendes">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.facebook.com/9Bruno11">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+      <div class="w-100">
+        <h2 class="mb-5 mt-3">Experience</h2>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Web Developer</h3>
+            <p>Started developing websites with a friend using <a href="https://www.djangoproject.com/">django framework</a> since may of last year, since then we have done two working websites (still unfinished)
+            but it helped us develop organizational skills and agile working methods.</p>
+            <p>
+              During the first semester of my third year I also had the chance of develop using<a href="https://laravel.com/"> laravel framework </a>in Web Development Applications module.
+            </p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">May 2019 - Present</span>
+          </div>
+        </div>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Internship as Front End Developer</h3>
+            <div class="subheading mb-3"><a href="http://www.adj3.pt/">Adj3 Systems</a></div>
+            <p>
+              Worked as a internship for Adj3 systems during the summer last year, helped developing the scss and JavaScript of multiple websites.
+            </p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">July 2019 - September 2019</span>
+          </div>
+        </div>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Colaborator at CEOT</h3>
+            <div class="subheading mb-3"><a href="https://www.ceot.ualg.pt/">CEOT</a></div>
+            <p>
+              Since the start of my third year I've been developing a RESTful webservice on a Raspberry Pi 3 using a combination of <a href="https://expressjs.com/">express.js</a>,
+              <a href="https://en.wikipedia.org/wiki/Constrained_Application_Protocol">coap</a> and websockets with the objective of connecting multiple arduino's to it.
+            </p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">October 2019 - Present</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+      <div class="w-100">
+        <h2 class="mb-5">Education</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">University of Algarve</h3>
+            <div class="subheading mb-3">Bachelor of Science</div>
+            <div>Computer Science</div>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2017 - Present</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+
+        <div class="subheading mb-3">Programming Languages</div>
+        <ul class="list-inline dev-icons">
+          <li class="list-inline-item">
+            <i class="fab fa-html5"></i>
+          </li>
+           <li class="list-inline-item">
+            <i class="fab fa-bootstrap"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-css3-alt"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-sass"></i>
+          </li>
+
+          <li class="list-inline-item">
+            <i class="fab fa-laravel"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-php"></i>
+          </li>
+           <li class="list-inline-item">
+            <i class="fab fa-js-square"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="devicon-jquery-plain"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-node"></i>
+          </li>
+          <li class="list-inline-item">
+             <i class="devicon-express-original"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-npm"></i>
+          </li>
+          <li class="list-inline-item">
+             <i class="devicon-c-plain"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-java"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-python"></i>
+          </li>
+          <li class="list-inline-item">
+             <i class="devicon-django-plain"></i>
+          </li>
+          <li class="list-inline-item">
+              <i class="devicon-mongodb-plain"></i>
+          </li>
+          <li class="list-inline-item">
+               <i class="devicon-mysql-plain"></i>
+          </li>
+          <li class="list-inline-item">
+              <i class="devicon-postgresql-plain"></i>
+          </li>
+
+        </ul>
+
+        <div class="subheading mb-3">Tools</div>
+          <ul class="list-inline dev-icons">
+
+          <li class="list-inline-item">
+              <i class="devicon-git-plain"></i>
+          </li>
+          <li class="list-inline-item">
+               <i class="devicon-heroku-original"></i>
+          </li>
+          <li class="list-inline-item">
+               <i class="devicon-jetbrains-plain"></i>
+          </li>
+          <li class="list-inline-item">
+              <i class="devicon-trello-plain"></i>
+          </li>
+          <li class="list-inline-item">
+               <i class="devicon-visualstudio-plain"></i>
+          </li>
+          <li class="list-inline-item">
+              <i class="devicon-debian-plain"></i>
+          </li>
+          <li class="list-inline-item">
+              <i class="devicon-slack-plain"></i>
+          </li>
+          <li class="list-inline-item">
+               <i class="devicon-ubuntu-plain"></i>
+          </li>
+          </ul>
+        <div class="subheading mb-3">Workflow</div>
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Mobile-First, Responsive Design</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Cross Browser Testing &amp; Debugging</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Cross Functional Teams</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Agile Development &amp; Scrum</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+      <div class="w-100">
+        <h2 class="mb-5">Languages</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="text-center" style="background-color: rgb(0,0,0,0.05) !important" colspan="5">Portuguese</th>
+    </tr>
+    <tr>
+      <th class="text-center" colspan="5">Self-assessment of language skills
+  </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <td colspan="2" style="border-right:2px solid rgb(0,0,0,0.05) !important">Understanding</td>
+      <td  colspan="2"  style="border-right:2px solid rgb(0,0,0,0.05) !important">Speaking</td>
+      <td colspan="1">Writing</td>
+    </tr>
+    <tr class="text-center">
+      <td colspan="1">Listening</td>
+      <td colspan="1"  style="border-right:2px solid rgb(0,0,0,0.05) !important">Reading</td>
+      <td colspan="1">Spoken Interaction</td>
+      <td colspan="1"  style="border-right:2px solid rgb(0,0,0,0.05) !important">Spoken Production</td>
+      <td colspan="1">Spoken Writing</td>
+    </tr>
+    <tr class="text-center">
+      <td colspan="1" class="text-center">C2 Proficient User</td>
+      <td colspan="1"  style="border-right:2px solid rgb(0,0,0,0.05) !important">C2 Proficient User</td>
+      <td colspan="1">C2 Proficient User/td>
+      <td colspan="1"  style="border-right:2px solid rgb(0,0,0,0.05) !important">C2 Proficient User</td>
+      <td colspan="1">C2 Proficient User</td>
+    </tr>
+  </tbody>
+</table>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="text-center" style="background-color: rgb(0,0,0,0.05) !important" colspan="5">English</th>
+    </tr>
+    <tr>
+      <th class="text-center" colspan="5">Self-assessment of language skills
+  </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <td colspan="2" style="border-right:2px solid rgb(0,0,0,0.05) !important">Understanding</td>
+      <td  colspan="2"  style="border-right:2px solid rgb(0,0,0,0.05) !important">Speaking</td>
+      <td colspan="1">Writing</td>
+    </tr>
+    <tr class="text-center">
+      <td colspan="1">Listening</td>
+      <td colspan="1"  style="border-right:2px solid rgb(0,0,0,0.05) !important">Reading</td>
+      <td colspan="1">Spoken Interaction</td>
+      <td colspan="1"  style="border-right:2px solid rgb(0,0,0,0.05) !important">Spoken Production</td>
+      <td colspan="1">Spoken Writing</td>
+    </tr>
+    <tr class="text-center">
+      <td colspan="1" class="text-center">C1 Proficient User</td>
+      <td colspan="1"  style="border-right:2px solid rgb(0,0,0,0.05) !important">C1 Proficient User</td>
+      <td colspan="1">B2 Independent User</td>
+      <td colspan="1"  style="border-right:2px solid rgb(0,0,0,0.05) !important">B2 Independent User</td>
+      <td colspan="1">B1 Independent User</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+
+    <hr class="m-0">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+      <div class="w-100">
+        <h2 class="mb-5">Others</h2>
+          <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">2nd year Student Representative for Computer Engineering</h3>
+              <div class="subheading mb-3">University of Algarve</div>
+            <p>Responsible for evaluating teachers' teaching methods.
+          Providing support in dealing with problems between the student body and teaching staff.
+            </p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2018 - July 2019</span>
+          </div>
+        </div>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">3th year Student Representative for Computer Engineering</h3>
+              <div class="subheading mb-3">University of Algarve</div>
+            <p>Responsible for evaluating teachers' teaching methods.
+            Providing support in dealing with problems between the student body and teaching staff.
+            </p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2019 - Present</span>
+          </div>
+        </div>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Member of "Núcleo de Estudantes de Engenhiria Informática"</h3>
+              <div class="subheading mb-3">University of Algarve</div>
+            <p>Responsible for organizing workshops,seminars and internships for the Students of Computer Science and help them be more prepared for the world of work
+            </p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2019 - Present</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
