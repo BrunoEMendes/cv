@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+  <script type='text/javascript'> var Timing = {times:{}}; Timing.mark = function(e,t)  { if(!t) {t = new Date().getTime()}; Timing.times[e] = t}; Timing.mark('firstbyte')</script>
+  <head>
+  
+  <meta charset="utf-8">
+
+  
+  <link rel="dns-prefetch" href="use.typekit.net" />
+  <link rel="dns-prefetch" href="p.typekit.net" />
+  <link rel="dns-prefetch" href="s3.amazonaws.com" />
+  <link rel="preconnect" href="https://p.typekit.net" />
+  <link rel="preconnect" href="https://beanstalk.37signals.com" />
+  <link rel="preconnect" href="https://in.getclicky.com" />
+
+  
+  <link href="//signalvnoise.com/assets/application-4d9edb9055dd20f143cdef8111ce762c.css" media="screen" rel="stylesheet" type="text/css" />
+
+  
+
+  
+  <script src="//signalvnoise.com/assets/application-827f23a8f5183234ef24158d93fa5957.js" type="text/javascript"></script>
+  <script type="text/javascript" src="//use.typekit.net/kxs4ufr.js" onload="try{Typekit.load({async:false});}catch(e){}"></script>
+  <![if !IE]>
+  <script async type="text/javascript" src="/static/highlight.pack.js" onload="hljs.initHighlightingOnLoad();"></script>
+  <![endif]>
+
+  
+  
+
+  
+  <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0" />
+  <meta property="og:site_name" content="Signal v. Noise by Basecamp" />
+  <meta property="twitter:site" content="@basecamp" />
+  
+    <title>Behind the scenes: Reinventing our Default Profile Pictures – Signal v. Noise</title>
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://signalvnoise.com/posts/3104-behind-the-scenes-reinventing-our-default-profile-pictures" />
+    <meta property="og:title" content="Behind the scenes: Reinventing our Default Profile Pictures" />
+    <meta property="og:description" content="
+
+
+Mister Default
+
+	Here he is: our default profile picture. You may know him as &#8220;Generic Avatar&#8221;. He&#8217;s the picture you get when you create a new account and profile on Basecamp, Highrise, Backpack, and Campfire. Mr. Default is a standard guy. He&#8217;s found everywhere on the we…" />
+    <meta property="og:image" content="https://s3.amazonaws.com/37assets/svn/765-default-avatar.png" />
+    
+      <meta property="twitter:creator" content="@asianmack" />
+    
+  
+  <meta property="fb:admins" content="555561089" />
+  <link rel="publisher" href="https://plus.google.com/+basecamp" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://signalvnoise.com/posts.rss" />
+</head>
+
+  <body class="perma">
+
+    <header class="masthead">
+  <p>
+    <span class="visible-desktop">You&rsquo;re reading</span>
+    <a href="https://signalvnoise.com/">Signal v. Noise</a><span class="visible-tablet">, a publication <a href="/writers/">about</a> the web</span>
+    by <a href="https://basecamp.com/?source=SvN">Basecamp</a>
+    <span class="visible-tablet"> since 1999.</span>
+    <span class="happyday visible-desktop">Happy <span class="happyday--dayofweek"></span>!</span>
+  </p>
+
+  
+</header>
+
+
+    <div class="container">
+      <div class="content">
+        
+
+<article class="post instapaper_body"  id="article_3104">
+  
+    <header class="post-header" id="article_3104">
+  <h1 class="waveform Design">
+    
+    Behind the scenes: Reinventing our Default Profile Pictures
+  </h1>
+
+  <div class="post-header-info">
+    
+      <figure class="post-header-info-avatar">
+        <a href="/writers/jamie"><img alt="Jamie" height="30" src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" width="30" /></a>
+      </figure>
+
+      <a href="/writers/jamie" id="Jamie">Jamie</a> <em>wrote this on</em> <span class="post-date">Feb 08 2012</span>
+    
+
+    <span class="post-header-info-discuss"><a href="https://signalvnoise.com/posts/3104-behind-the-scenes-reinventing-our-default-profile-pictures?77#comments">77 comments</a></span>
+
+    
+  </div>
+</header>
+
+<div class="post-content">
+  <p><img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" width="530" height="530" alt="Default Avatar" /></p>
+
+
+<h2>Mister Default</h2>
+
+	<p>Here he is: our default profile picture. You may know him as &#8220;Generic Avatar&#8221;. He&#8217;s the picture you get when you create a new account and profile on <a href="http://basecamp.com/">Basecamp</a>, <a href="http://highrisehq.com/?source=svn_post">Highrise</a>, <a href="http://backpackit.com/?source=svn_post">Backpack</a>, and <a href="http://campfirenow.com/?source=svn_post">Campfire</a>. Mr. Default is a standard guy. He&#8217;s found everywhere on the web (in variations): message boards, comments, activity streams.</p>
+
+
+	<p>He forces everyone to look like him regardless of gender, race, and physicality. He&#8217;s also very boring.</p>
+
+
+	<p><img src="http://s3.amazonaws.com/37assets/svn/766-basecamp-avatars.png" /></p>
+
+
+<h2>Time for a change</h2>
+
+	<p>People don&#8217;t usually have a picture on hand to change the default avatar. What happens is none of the default pictures ever get changed. Basecamp looks boring when everyone is Mr. Default. Splashes of color and personality from peoples&#8217; pictures bring life to a product.</p>
+
+
+	<p>We want your first experience with <a href="http://basecamp.com">Basecamp</a> to be colorful, welcoming, and friendly. First, we&#8217;ve improved the flow for replacing the default avatar. Additionally, we&#8217;ve improved the default profile pictures. Say goodbye to Mr. Default.</p>
+
+
+<h2>Literal Icons</h2>
+
+	<p>Initially I thought about approaching the pictures like the game Monopoly. Everyone has a different icon much like the pieces in that board game: an iron, a thimble, a race car, etc. Here are some sketches from that session.</p>
+
+
+	<p><img src="http://s3.amazonaws.com/37assets/svn/767-sketchesavatars.png" /></p>
+
+
+	<p>I had been experimenting with a painterly style for a different project, so I tried that with this literal icon imagery.</p>
+
+
+	<p><img src="http://s3.amazonaws.com/37assets/svn/768-painter.jpg" /></p>
+
+
+	<p><strong style="color: #c00;">Jason Fried&#8217;s feedback:</strong> Having literal and distinct icons might cause people to want to switch one out with another, or not find a suitable match. Would we need to build an interface to &#8220;choose your default icon&#8221;? Too complicated. Maybe we should go abstract.</p>
+
+
+<h2>37signals Office Surface Textures</h2>
+
+	<p>Another idea I had was to try our office surface textures. The 37signals office is made of so many great materials. Basecamp is basically our office. Perhaps it was worth a try.</p>
+
+
+	<p><img src="http://s3.amazonaws.com/37assets/svn/769-office.jpg" /></p>
+
+
+	<p><strong style="color: #c00;">Jason Fried&#8217;s feedback:</strong> We want people to see Basecamp as theirs not ours. This isn&#8217;t about 37signals. Who wants to be represented by cork? Also the imagery feels too masculine. Let&#8217;s go softer and more cheerful.</p>
+
+
+<h2>Abstract Paintings</h2>
+
+	<p>I liked the painterly style of the first batch of icons. They were colorful and cheerful. What if I tried some abstract shapes and patterns?</p>
+
+
+	<p><img src="http://s3.amazonaws.com/37assets/svn/770-abstract-1.jpg" /></p>
+
+
+	<p><strong style="color: #c00;">Jason Fried&#8217;s feedback:</strong> These are closer. The patterns might be too distracting. Try shapes and lines like that one on the upper left.</p>
+
+
+<h2>Refining the Abstract Paintings</h2>
+
+	<p>Concentrating on shapes instead of patterns was a big breakthrough. The shapes started to take on face-like features.</p>
+
+
+	<p><img src="http://s3.amazonaws.com/37assets/svn/771-abstract-2.jpg" /></p>
+
+
+	<p><strong style="color: #c00;">Jason Fried&#8217;s feedback:</strong> Loving these. These are great!</p>
+
+
+	<p><strong style="color: #c00;">Jason Zimdars&#8217; feedback:</strong> When I see these I think of cars. The headlights and grill make a face. I wonder how they&#8217;d look with a slight smile?</p>
+
+
+	<p><img src="http://s3.amazonaws.com/37assets/svn/773-abstract-4.jpg" /></p>
+
+
+	<p>I&#8217;m very happy with the way these default profile pictures turned out. When someone creates a new Basecamp account they will be randomly assigned one of these custom painted pictures. As you&#8217;d expect, each picture can be easily swapped with their own personal photo.</p>
+
+
+	<p>The difference now is straight away, out of the box, Basecamp will have color, personality, and vibrancy as you start managing and completing your projects.</p>
+
+
+	<p><img src="http://s3.amazonaws.com/37assets/svn/774-avatars.jpg" /></p>
+
+      <div class="post-content-extended" id="extended">
+        
+      </div>
+    </div> 
+  
+</article>
+
+<section class="post-comments">
+  <div class="post-comments-info">
+    
+
+
+    
+      <a href="/writers/jamie">Jamie</a> wrote <em>this on</em> Feb 08 2012
+      <em>There are</em> <span class="post-comments-info-expandable">77 comments</span>.
+    
+  </div>
+
+  <div class="post-comments-all" data-comments id="comments">
+  <div class="post-comment" id="comment_71863">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Christopher B</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love this. I’d be the red one with scruff =) Been watching my Twitter like a hawk waiting for the next back of invites. The last one I was about 20 seconds short it seems. Can’t wait.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71864">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://rickysalsberry.com" only_path="true" rel="nofollow">Ricky Salsberry</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love these &amp; love reading the feedback / seeing the process. Thumbs up.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71865">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://intercom.io" only_path="true" rel="nofollow">Des</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Nice work, love the end result and it’s great to see the process.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71866">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Thomas</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>This is an awesome idea and very well executed. An additional bonus is that the new imagery isn’t gendered at all – a big plus!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71867">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Pavel T</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I love this approach</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71868">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://anthonygarand.com" only_path="true" rel="nofollow">Anthony Garand</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Wow. Love the process here. Thanks for sharing this. Also the new avatars look stellar. Nice work.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71869">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Christopher</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Would love a gravatar default.</p>
+
+
+	<p>1. User uploaded (if user has uploaded an image)
+2. Gravatar (if user has a gravatar)
+3. Abstract Smiley (default if other two don’t exist)</p>
+
+
+	<p>BTW, love the new defaults over the grey silhouette!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71870">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://jakekellogg.com" only_path="true" rel="nofollow">Jake Kellogg</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love seeing the process and the feedback.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71871">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://seasketch.org" only_path="true" rel="nofollow">Chad Burt</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I love posts like these. It’s great that you guys make the time to deliberate over decisions like this.</p>
+
+
+	<p>One critique. The purpose of avatars is not just to add colors to the page but to also give users a distinct identity. I’m not sure that if I saw all these icons on the page I would be able to recognize individuals.</p>
+
+
+	<p>One way to deal with that would be to have each avatar be more monochromatic with a whole range of color choices. That might not work well though because many users could have the same favorite color. Maybe just doing pairwise comparison of each and throwing out similarities would improve the situation. For example, choosing only one of the blue/green/light-blue avatars in the upper right corner.</p>
+
+
+	<p>Another way might be to just do pairwise comparison of all combinations and make sure they are all very distinct.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71872">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://kreativehq.com" only_path="true" rel="nofollow">BruceBruce</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Suhweet, great progressive post.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71874">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">dave</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>You should have went with <a href="http://blog.gravatar.com/tag/unicornify/">unicorns</a>!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71875">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.seanschraeder.com" only_path="true" rel="nofollow">Sean Schraeder</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>They look very similar to the original Mac OS icon/face
+http://upload.wikimedia.org/wikipedia/en/8/81/Mac_OS_Logo_with_Text.svg</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71876">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://64notes.com" only_path="true" rel="nofollow">King Sidharth</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>This is amazing. The best part is the thinking process that went behind rethinking something that was way to ignored.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71877">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">James</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>i like the fact that despite the threat of horrid horrid legal action, you settled on pokeballs. The bottom left blue one especially ;)</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71878">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Ryan Hyde</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I love everything this idea. I think the fact that is still is a face is so clever and subtle. I love that so much care went it something that seems to be little but really sets you guys apart. Thanks!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71879">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Doug Johnson</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>@Chad I agree with you in principal, but the idea is to have a good looking placeholder until you can get your own personalized avatar in place, and to make things lively if you never get around to it.
+These are much more fun and good looking that Mr. Default, but not so engaging that you wouldn’t eventually decide to get around to putting your own picture up.
+And Jamie, thanks for exposing your process to us.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71881">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Russ A</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Framed with circles they look like face-on Pac-Men.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71882">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">george</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Mr generic was stereotypically white. He stood for the white, no matter how you describe him. Am glad he is gone. :)</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71883">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">GeeIWonder</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Those things are CREEPY man!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71884">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">David Andersen</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>How long did this process take?</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71885">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">AC</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Nothing says welcome like a sub machine gun!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71887">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Colin</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>My designer said these look very much like Mark Rothko’s work http://bit.ly/AgM9Pi . Love how they turned out. Nice stuff.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71888">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://h3h.net/" only_path="true" rel="nofollow">Brad Fults</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I second the request for fallback to Gravatars. I’ve already dealt with my user profile image once; I shouldn’t have to deal with it again on every single new site.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71889">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Don</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love it! Accomplishes a craftsmen/artist look while conveying emotion with a simple smiley face motif. I’ll take the bottom left cause it’s the cleanest!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71890">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://ultralighter.blogspot.com/" only_path="true" rel="nofollow">Dave Sailer</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Congratulations on your merger with http://theoatmeal.com/</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71891">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://zenworm.org" only_path="true" rel="nofollow">Jason O&#39;Brien</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love, love, love. Thank you for doing this and writing about it.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71892">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://twitter.com/huund" only_path="true" rel="nofollow">Huund</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I’m not convinced by the new direction. The new profile pictures assign a lot of personality, maybe too much, and risks to be a bad fit. This was less of an issue with the generic guy. I would have tried variations of the generic guy using different background colors and silhouettes to end up with various <i>generic</i> profiles rather than personalities.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71893">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Ahmad</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>This will be the face of avatars on the whole wide web</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71894">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://intercom.io" only_path="true" rel="nofollow">Eoghan McCabe</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love this.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71895">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Scott</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Like it!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71896">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Moderator</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Interesting post, but I would hardly call this SVN material. Closed.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71897">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://nataliepo.typepad.com" only_path="true" rel="nofollow">nataliepo</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Yey!  I bemoaned the lack of creativity around userpics last summer (http://nataliepo.typepad.com/nataliepo/2011/06/you-are-not-a-userpic.html) so I’m very happy to see someone taking a much more creative step.  I also love their cherubic roundness! They’re very happy icons.  Nice work!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71899">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.twitter.com/davedriesmans" only_path="true" rel="nofollow">Dave Driesmans</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>haha the paintings are totally rothko :)</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71900">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.blacklabprojects.nl" only_path="true" rel="nofollow">Jeroen Roodnat</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love the new icons. Love the fact that you take the time and effort to think about something like this. In most projects such level of detail is usually not done and grey avatars are put in place.</p>
+
+
+	<p>Taking this effort will pay off because users notice the icons and it creates reaction.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71901">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://rockiger.com/en/blog" only_path="true" rel="nofollow">Rockiger</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Sorry guys, I will definitly steal this idea from you.</p>
+
+
+	<p>Like the approach, kudos.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71902">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">txt</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I think having a mr.default with a wide range of colors would be 100x better, but with a twist.. X amount of posts, will change your avatars color.. Or maybe the amount of feedback, ‘likes’, or type of content posted would change its color..</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71903">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://fleapay.com" only_path="true" rel="nofollow">FredS</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>This is really going to work well for Cirque du Soleil’s account… the rest of us – not so much.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71904">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Chris</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Oh god no.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71908">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.epigroove.com/" only_path="true" rel="nofollow">Jamie Tibbetts</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I agree with Chad. The new icons are super cool looking, and The Mr. Generic icons are indeed boring, but they serve a purpose. They say at a glance: “This user hasn’t uploaded a custom avatar yet.” With these new colorful icons, you run the risk of having the icons become associated with specific individuals.</p>
+
+
+	<p>For example, I learn over time to recognize Bill by his orange and purple generic icon. Then if Janice is added to the project and she chooses the same icon, I will, out of habit, glance and think her comments are actually coming from Bill.</p>
+
+
+	<p>I think the design of the avatars is cool, but I think you’re creating a potential problem while trying to solve a problem that wasn’t really screaming for a solution.</p>
+
+
+	<p>Just my 2¢.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71909">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.epigroove.com/" only_path="true" rel="nofollow">Jamie Tibbetts</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I think Huund’s solution is a good one. It adds a splash of color, but still keeps them instantly recognizable as “generic.”</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71910">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Anonymous Coward</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p><em>For example, I learn over time to recognize Bill by his orange and purple generic icon. Then if Janice is added to the project and she chooses the same icon, I will, out of habit, glance and think her comments are actually coming from Bill.</em></p>
+
+
+	<p>And how is this different from multiple people having a generic avatar? Everyone looks the same with generic avatars too – there are only so many colors you can choose that are distinctly different. So is the purple generic avatar Sally’s or Steve’s? Same issue. And why would Sally look like a man?</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71912">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Scott C</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Why force a profile pic?  Shouldn’t it be relevant if one is used?  Preset choices can just end up having the same affect as one default with just a little variation and no meaning.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71913">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Ryan</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Those pictures are creepily cute. They remind me of this site</p>
+
+
+	<p>http://explodingdog.com/</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71914">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Daniel</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>i’d have to say these look like some attempt to merge meaninglessness into something meaningful….  totally ugly….</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71917">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://rianmurnen.com" only_path="true" rel="nofollow">Rian Murnen</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>The abstraction is pleasant and friendly due to the irregular edges. And the implied faces make me smile back.</p>
+
+
+	<p>The color variety is great as well and my sense is that even at smaller sizes they avatars would staff distinctive.</p>
+
+
+	<p>This is a really nice extra touch. Well done.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71918">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Barry Sindlinger</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>While I appreciate that “there is no accounting for taste,” it seems that some own a distaste for humanizing iconic joy, or emotion.</p>
+
+
+	<p>Now, it is true that 37’s products don’t verge on [Hoy’s] “freckle” or even “Charm,” exemplars of her philosophy of “cheerful” software. Nor (I discern) are they seeking to invoke “cotton candy and dream-clouds”.</p>
+
+
+	<p>The branding expert might try to tie the abstract painterly avatars more tightly to their names: “Basecamp,” “Backpack,” “Campfire” (exempting “Highrise,” which tends to broaden the semantic climate, for the moment!). Such congruency could call for “rustic,” more “sepia-toned” icons. The same shapes could be used – just tone ‘em down a bit.</p>
+
+
+	<p>But some of the ones set forth are close to the realm….</p>
+
+
+	<p>The abstraction combined with lovely splashes of color brings joy or pleasant emotion to the working realm.</p>
+
+
+	<p>And while BC has no desire to become the exclusive realm of the comic or cartoon-lover, many of 37’s clients broadly consider themselves “creative types,” if not downright Creatives. We don’t fancy ourselves the straight-laced IBM “suit,” nor the blasé comic avatar (the current version). Nor cartoons….</p>
+
+
+	<p>Again, we would not think ourselves in the realm of Cirque were we to see the abstract art of the icons (under discussion) on the walls of a respected business establishment – ranging from the original “Cranium” to “Apple” to the doctor’s office to “Sun”.</p>
+
+
+	<p>Having set forth the above points, I must express a degree of disappointment – the final design step’s conversion of the frames to “circles” was mildly disconcerting to me…. It seemed the avatars lost some of their joyful elegance. They somehow became lesser (by convention?).... They lost their abstract grandeur, and became more like smurfs, pac-men, or Mattel toys! ;) While these also belong to the “creative” realm, I perceive 37 as heading away from the truly “campy”.</p>
+
+
+	<p>Finally, RAILS is “opinionated” software. Why shouldn’t the front-end graphics be? ;) (throwaway argument)</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71920">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Anonymous Coward</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>@Murnen – My thoughts on “pleasant art,” but well expressed! ;)</p>
+
+
+	<p>@tibbetts – 37s could practically solve your problem for their demographic by 1) creating enough avatars reasonably to allow for distinction of every member of a project (they may already have been headed that direction, having shown us 10, though it appears obvious they would need more), 2) controlling their unique dispersal of the avatars – i.e., one for each member of a project – with a simple algorithm).</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71922">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.brettatkin.com" only_path="true" rel="nofollow">Brett Atkin</a></h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Sometimes it feels like you waste time on things (like this) that could be better spent on something else (like going live sooner).</p>
+
+
+	<p>The generic avatars serve a purpose (as someone previously mentioned).  Why not just have a generic male and female?  If someone uses one of those designs, they may never upload their pic and then we’ll never know what they look like.</p>
+
+
+	<p>I like these types of posts where you share your thought process, but I think this particular idea was a waste of your time.</p>
+
+
+	<p>Brett</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71924">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Anonymous Coward</h3>
+      <span class="post-comment-header-date">on 08 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>@Anonymous Coward</p>
+
+
+<blockquote>And how is this different from multiple people having a generic avatar? Everyone looks the same with generic avatars too</blockquote>
+
+	<p>He just spent two paragraphs explaining how exactly it is different.</p>
+
+
+	<p>Generic avatar = you see a lot of those, so you learn not to confuse it with specific persons. It gives the message “this person has not uploaded an avatar yet”.</p>
+
+
+	<p>Personalized generic avatars such as these = you might confuse “avatar #2 with Jane” (as you are used to see #2 in her profile), and you can be confused and mixup Jane with someone new you get to interact with which has the same one assigned.</p>
+  </div>
+</div>
+<div class="post-comment basecamper" id="comment_71925">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">JF</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p><em>Sometimes it feels like you waste time on things (like this) that could be better spent on something else (like going live sooner).</em></p>
+
+
+	<p>This project had no impact on our launch schedule.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71927">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://nongallery.com/" only_path="true" rel="nofollow">Nate</a></h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I like the ideas in action here.  Will there be only ten or will there be hundreds of them?</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71928">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://petekp.com" only_path="true" rel="nofollow">Pete</a></h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Awesome. Love the solution and appreciate the insight into the process!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71929">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://binarym.com/" only_path="true" rel="nofollow">matt mcinvale</a></h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>another vote for gravatars. please please please (please)!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71930">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://freezing-fire-4292.herokuapp.com" only_path="true" rel="nofollow">FDS</a></h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>It’s minimalist, I love it. Simple UI, simple app(basecamp), simple avatar-&gt; it all goes together guys.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71931">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.brettatkin.com" only_path="true" rel="nofollow">Brett Atkin</a></h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I’m glad it didn’t impact the launch schedule.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71933">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Byrne Reese</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Why not use Monopoly board pieces (e.g. Top hat, race car, etc) as default user pics?</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71934">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Maneesh Prabhalayam</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Beautiful Innovation!! Good Work!! Liked :)</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71937">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://quangduc.com.vn" only_path="true" rel="nofollow">cuu ho giao thong</a></h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>thank for your post , great :)</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71939">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://watchavideo.net" only_path="true" rel="nofollow">Watch a video</a></h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I am not sure if the abstract ones are as appealing as a mugshot of a comic/monopoly character. Personally I prefer the painter like icons, especially the ostrich with the beaker but I guess some people will prefer to stick with the default. One option is to go with a mix of comic / funny and superhero characters.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71940">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Red Feet</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>If someone would have said “let’s create avant-garde style painted smileys”, the idea would have been swiped off the table immediately with a loud “Naaah!” But by going through this all these steps, you ended up with: “avant-garde style painted smileys”! And be happy with it after all.
+what I learned about perception: Results + Process &lt;&gt; Plain Results</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71944">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Manuel F. Lara</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Funny how I didn’t like the images at any step of the process, but once I saw the balls with the face on it I thought “That’s brilliant, love it!”. Hopefully you guys won’t assign the same default avatar to two people in the same project (when possible given the amount of people on it).</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71945">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Pedro</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I like the heart cup =)</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71958">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">jon</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I think it looks like crap.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71986">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Sara</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>ROTHKO!</p>
+
+
+	<p>Love them!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_71999">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">GeeIWonder</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Rothko doesn’t work well as a circle though. The minor note becomes major as the middle gets fatter.</p>
+
+
+	<p>Worse, the ‘smile’ exacerbates the problem as it makes the thing look pseudo-spherical .</p>
+
+
+	<p>So yeah, Rothko—but robbed of the aesthetic.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72018">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://conversation2sales.com" only_path="true" rel="nofollow">Lesa</a></h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love the finished icons!  Wish more businesses put this much thought into how accounts get created on their systems and the impacts those decisions have on users.  Great job!</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72026">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Barry Sindlinger</h3>
+      <span class="post-comment-header-date">on 09 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>@ GeeIWonder – agreed; see how I was trying to get at the same factors above.</p>
+
+
+	<p>I love the “rothko-esque” approach, but think the overlaying sphere frames turned the aesthetic into a near-campy “Pac-man,” “Smurf,” or a “Mattel” toy (rather than a “Melissa and Doug” or higher).</p>
+
+
+	<p>Your additional comment latching onto the “smile’s” subtle exacerbating the demoting of the aesthetic is spot-on.</p>
+
+
+	<p>However, did you think the “smile” without the “spherical frame” failed? After all, 37s is not seeking to duplicate Rothko (!). I though the smile worked as subtle enough – without the sphere.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72032">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.redmagic.com" only_path="true" rel="nofollow">Scott</a></h3>
+      <span class="post-comment-header-date">on 10 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love the thought of improving things that we just take for granted.</p>
+
+
+	<p>Personally, I really liked the more personalized icons, and disagree with: </p><blockquote>Having literal and distinct icons might cause people to want to switch one out with another, or not find a suitable match. </blockquote>
+Just have a large selection of personlized icons to pick from, and present the users with a set of 5 to start. Click “more icons” to cycle through more icons. Downplay the importance of it and allow them to change later. Why is it a big deal if they want to switch one out? That is kind of the fun factor right? Like for a holiday they could switch out to a shamrock for awhile?
+
+
+	<p>Or best of both worlds: intermix specific icons (like the amazing drinking bird) with a generic one (like the wall).</p>
+
+
+	<p>Another problem no one mentioned about the “final” circle version is that if I’m glancing at it, I’m not going to be able to differentiate or remember that Frank picked the one that had the blue part on the top right or did he have one with the green stripe down the middle. If you were more specific, like the drinking bird, I could make the association and it would stick.</p>
+  </div>
+</div>
+<div class="post-comment basecamper" id="comment_72035">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">JF</h3>
+      <span class="post-comment-header-date">on 10 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>All avatars in Basecamp Next are circles. That’s why they are circles.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72044">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://garethrees.co.uk" only_path="true" rel="nofollow">Gareth Rees</a></h3>
+      <span class="post-comment-header-date">on 10 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Love them, great idea.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72045">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">GeeIWonder</h3>
+      <span class="post-comment-header-date">on 10 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Clearly making a perfect copy of Rothko is not what anyone’s after here. That would be boring and trivial and derivative. 
+By becoming a circle, they are very much not Rothko-like is I guess what I was trying to say. If you love Rothko, this may be a minus, but it’s not inherently a minus.</p>
+
+
+	<p>@BS I don’t mind the ‘smile’ in the rectangles.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72054">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://www.scwcreative.com" only_path="true" rel="nofollow">Skipper Chong Warson</a></h3>
+      <span class="post-comment-header-date">on 10 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>Thanks for sharing your process, a nice read on a Friday afternoon for me. A great detail for your products, which are already pretty spiffy.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72124">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Craig Barnes</h3>
+      <span class="post-comment-header-date">on 11 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>This is a nice twist on generic but unique default avatars:</p>
+
+
+	<p>http://static1.robohash.com/</p>
+
+
+	<p>Not sure if robots would really fit with Basecamp but the idea is pretty interesting.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72125">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Craig Barnes</h3>
+      <span class="post-comment-header-date">on 11 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>P.S. I’ve just realised “generic but unique” is kind of an oxymoron. I hope the internet grammar police don’t read this blog.</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72126">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">TOIVO</h3>
+      <span class="post-comment-header-date">on 11 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>you should include the google +1 button (in the beginning of the post)</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72169">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author">Michaela</h3>
+      <span class="post-comment-header-date">on 13 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>I really love these! Great to see it happen from start to finish.</p>
+
+
+	<p>@michaelwithana</p>
+  </div>
+</div>
+<div class="post-comment" id="comment_72173">
+  <div class="post-comment-header">
+    
+          <h3 class="post-comment-header-author"><a href="http://aryanpour.com" only_path="true" rel="nofollow">Farsi dictionary</a></h3>
+      <span class="post-comment-header-date">on 14 Feb 12</span>
+      </div>
+
+  <div class="post-comment-body">
+    <p>SVN material, cool as always.</p>
+  </div>
+</div>
+
+</div>
+
+
+      <div class="post-comments-form" data-comments-form>
+      <h2>This discussion <em>is</em> closed.</h2>
+    </div>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      var all_comments = $('[data-comments]');
+      var comment_form = $('[data-comments-form]');
+      var expandable = $('.post-comments-info-expandable');
+
+      function expand_comments() {
+        all_comments.fadeIn();
+        comment_form.fadeIn();
+      }
+
+      expandable.click(function(){
+        expand_comments();
+        $(this).removeClass('post-comments-info-expandable').addClass('expanded');
+        window.location.hash = "#comments"
+      });
+
+      $('[data-elastic]').elastic();
+    });
+  </script>
+</section>
+
+<section class="post-author">
+  <figure class="post-author-avatar">
+    <a href="/writers/jamie"><img alt="Jamie" height="100" src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" width="100" /></a>
+  </figure>
+
+  <div class="post-author-bio">
+    <h2>About Jamie</h2>
+    <p>He is Filipino.</p>
+    <p>Read all of <a href="/writers/jamie">Jamie&rsquo;s posts</a>, and <a href="https://twitter.com/asianmack">follow Jamie on Twitter</a>.</p>
+  </div>
+</section>
+
+<section class="post-similar-articles">
+  
+    If you liked this <a href="/Design">Design</a> post by Jamie, you&rsquo;ll probably like reading
+    <a href='/posts/3463-graphic-design-is-visual-communication-can'>Photo: Graphic design is visual communication. Can…</a>, <a href='/posts/2991-behind-the-scenes-ab-testing-part-3-final'>Behind the scenes: A/B testing part 3: Finalé</a>, and <a href='/posts/3903-good-notifications-project-fi'>Good Notifications: Project Fi</a>  
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="footer-browse">
+    <div class="footer-browse-best">
+      <h3><strong>New here?</strong> Start with our <span class="visible-desktop">best</span> hits:</h3>
+      <ul>
+        <li><a href='/posts/2412-how-do-you-turn-inspiration-into-skill'>How do you turn inspiration into skill?</a></li><li><a href='/posts/1325-acquire-taste'>Acquire taste</a></li><li><a href='/posts/439-four-letter-words'>Four letter words</a></li><li><a href='/posts/2746-all-the-wrong-things-we-did-with-rework'>All the &ldquo;wrong&rdquo; things we did with REWORK</a></li><li><a href='/archives2/it_just_doesnt_matter.php'>It just doesn’t matter</a></li>
+        <li><a href="https://signalvnoise.com/popular">&hellip; all of &ldquo;The Best of Signal v. Noise&rdquo;</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-browse-latest">
+      <h3><strong>Back again?</strong> Catch <span class="visible-desktop">up on</span> our latest<span class="visible-desktop"> posts</span>:</h3>
+      <ul>
+        
+          <li><a href="https://signalvnoise.com/posts/3980-basecamp-hq-mural">Basecamp HQ Mural</a></li>
+        
+          <li><a href="https://signalvnoise.com/posts/3979-chocoholic-anonymous">Chocoholic Anonymous</a></li>
+        
+          <li><a href="https://signalvnoise.com/posts/3978-building-basecamp-3-mobile-prototypes">Building Basecamp 3: Mobile Prototypes</a></li>
+        
+          <li><a href="https://signalvnoise.com/posts/3977-i-dont-want-to-be-a-winner">I don’t want to be a winner</a></li>
+        
+          <li><a href="https://signalvnoise.com/posts/3973-natasha-the-robot-murashev-joins-basecamp">Natasha “The Robot” Murashev joins Basecamp</a></li>
+        
+        <li><a href="https://signalvnoise.com/archives">&hellip; all posts on Signal v. Noise</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="footer-search">
+    <h2>Search<span class="visible-desktop"> for articles or writers</span></h2>
+    <form method="get" action="https://www.google.com/search">
+      <input type="hidden" name="sitesearch" value="signalvnoise.com" />
+      <input name="q" placeholder="Search Signal v. Noise&hellip;" type="text" />
+    </form>
+  </section>
+
+  <section class="footer-categories">
+    <ul>
+      <h2>Explore<span class="visible-desktop"> 15 years of</span> Signal v. Noise</h2>
+
+      
+        <li><a href="https://signalvnoise.com/business">Business</a></li>
+      
+        <li><a href="https://signalvnoise.com/design">Design</a></li>
+      
+        <li><a href="https://signalvnoise.com/programming">Programming</a></li>
+      
+        <li><a href="https://signalvnoise.com/support">Support</a></li>
+      
+        <li><a href="https://signalvnoise.com/sysadmin">Sysadmin</a></li>
+      
+        <li><a href="https://signalvnoise.com/writing">Writing</a></li>
+      
+
+      <li><a href="https://signalvnoise.com/popular">Best of</a></li>
+      <li><a href="https://signalvnoise.com/archives">Everything</a></li>
+    </ul>
+  </section>
+
+  <section class="footer-copyright">
+    <p>
+      Meet <a href="/writers/">the writers</a> of <a href="https://signalvnoise.com/">Signal v. Noise</a>.
+      If you like what you&rsquo;re reading, check out <a href="https://basecamp.com/books?source=SvN">our best-selling books REWORK and REMOTE</a>.
+    </p>
+    <p>
+      Content copyright &copy;1999-2020 <a href="https://basecamp.com/?source=SvN">Basecamp</a>.
+      Subscribe to our <a href="https://signalvnoise.com/posts.rss">RSS</a>.
+    </p>
+    <p>Enjoy your <span class="happyday--dayofweek"></span>.</p>
+  </section>
+</footer>
+
+    </div>
+
+    <script src="//www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript">_uacct = "UA-1876445-3"; urchinTracker();</script>
+    <script type="text/javascript">
+      var clicky={log:function(){return},goal:function(){return}};var clicky_site_id=66390688;(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src=document.location.protocol=="https:"?"https://static.getclicky.com/js?forceCacheBuster=true":"http://static.getclicky.com/js?forceCacheBuster=true";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()
+    </script>
+    <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66390688ns.gif" /></p></noscript>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id=986221142;var google_conversion_language="en";var google_conversion_format="3";var google_conversion_color="666666";var google_conversion_label="7RE4CNLIgQMQ1pSi1gM";var google_conversion_value=0
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+    <noscript><div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/986221142/?label=7RE4CNLIgQMQ1pSi1gM&amp;guid=ON&amp;script=0"/></div></noscript>
+  </body>
+  <script type='text/javascript'> Timing.mark('lastbyte'); if(typeof(Beanstalk) != 'undefined') {Beanstalk.Timing.init(Timing.times);} </script>
+</html>
